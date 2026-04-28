@@ -1,9 +1,95 @@
 let infoBook = document.getElementById("diseases-info")
+let book = document.getElementById("book-display-section")
+let bookBtns = document.getElementById("book-buttons-section") 
 
 let pg1 = document.createElement("p")
-pg1.innerHTML = `<strong>Norovirus</strong>:
-Virus that spreads via close contact, contaminated food, and contaminated surfaces.
-symptoms include vomitting, diarrhea, nausea, and stomach pain `
-infobook.addeventlistener("click", ()=>{
+pg1.id = "1"
+pg1.innerHTML = `<strong>Norovirus</strong>: <br>
+Virus that spreads via close contact, contaminated food, and contaminated surfaces. <br>
+symptoms include vomitting, diarrhea, and stomach pain <br>
+ typically lasts 1 to 3 days <br>`
 
+ let pg2 = document.createElement("p")
+ pg1.id = "2"
+ pg2.innerHTML = `<strong>Flu</strong> <br>
+ Virus that spreads via contaminated surface, close contact, and droplet transmission. <br>
+ symptoms incluse fever, cough, and congestion <br>
+ typically lasts a few days to a few weeks <br>`
+
+ let pg3 = document.createElement("p")
+ pg1.id = "3"
+ pg3.innerHTML = `<strong> RSV </strong> <br>
+ Virus that spreads via contaminated surface, close contact, and droplet transmission. <br>
+ symptoms incluse fever, cough, and congestion <br>
+ typically lasts 1 to 2 weeks <br>`
+
+let pg4 = document.createElement("p")
+pg1.id = "4"
+pg4.innerHTML = `<strong> tuberculosis </strong> <br>
+Infection that spreads via person with active TB lung infection. <br>
+ symptoms incluse chest pain, fatigue, and cough <br>
+ typically lasts 6 to 9 months <br>`
+
+let pg5 = document.createElement("p")
+pg1.id = "5"
+pg5.innerHTML = `<strong> E. coli </strong> <br>
+Infection that spreads via contaminated food and contaminated surfaces. <br>
+ symptoms incluse vomitting, diarrhea, and stomach pain <br>
+ typically lasts 5 to 10 days <br>`
+
+
+let nextpg = document.createElement("button")
+nextpg.innerHTML = "Next Page"
+let backpg = document.createElement("button")
+backpg.innerHTML = "Back 1 Page"
+
+infoBook.addEventListener("click", ()=>{
+    book.appendChild(pg1)
+    bookBtns.appendChild(nextpg)
+    bookBtns.appendChild(backpg)
+})
+
+nextpg.addEventListener("click", ()=>{
+    switch (book.firstElementChild){
+        case pg1:
+            book.removeChild(pg1)
+            book.appendChild(pg2)
+            break;
+        case pg2:
+            book.removeChild(pg2)
+            book.appendChild(pg3)
+            break;
+        case pg3:
+            book.removeChild(pg3)
+            book.appendChild(pg4)
+            break;
+        case pg4:
+            book.removeChild(pg4)
+            book.appendChild(pg5)
+            break;
+        
+    }
+})
+
+backpg.addEventListener("click", ()=>{
+    switch (book.firstElementChild){
+        case pg1:
+            break;
+        case pg2:
+            book.removeChild(pg2)
+            book.appendChild(pg1)
+            break;
+        case pg3:
+            book.removeChild(pg3)
+            book.appendChild(pg2)
+            break;
+        case pg4:
+            book.removeChild(pg4)
+            book.appendChild(pg3)
+            break;
+        case pg5:
+            book.removeChild(pg5)
+            book.appendChild(pg4)
+            break;
+    }
 })
