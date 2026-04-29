@@ -93,3 +93,37 @@ backpg.addEventListener("click", ()=>{
             break;
     }
 })
+
+class Disease{
+    constructor(name, type, spread, symptoms, duration){
+        this.name = name 
+        this.type = type
+        this.spread = spread
+        this.symptoms = symptoms
+        this.duration = duration
+    }
+
+}
+
+class TestResults extends Disease{
+    constructor(...args){
+        super(...args)
+    }
+
+}
+let norovirus = new Disease("norovirus", "virus", ["close contact", "contaminated food", "contaminated surfaces"],["vomitting", "diarrhea","stomach pain"],"1-3 days")
+let flu = new Disease("flu","virus", ["close contact","contaminated surfaces","droplet transmission"],["fever", "cough","congestion"],"a few days or weeks")
+let rsv = new Disease("rsv", "virus", ["close contact", "contaminated surfaces","droplet transmission"],["fever", "cough","congestion"],"1-2 weeks")
+let tuberculosis = new Disease("tuberculosis", "infection", ["people with active lung infection"],["chest pain", "cough","fatigue"],"6-9 months")
+let eColi = new Disease("e-coli", "infection", [ "contaminated food", "contaminated surfaces"],["vomitting", "diarrhea","stomach pain"],"5-10 days")
+
+let potDiseases = [norovirus, flu, rsv, tuberculosis, eColi]
+let enemyDisease = potDiseases[Math.floor(Math.random()* potDiseases.length)]
+
+let startButton = document.getElementById("start") 
+
+
+
+startButton.addEventListener("click", ()=>{
+
+})
