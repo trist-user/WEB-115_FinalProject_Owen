@@ -44,9 +44,11 @@ let backpg = document.createElement("button")
 backpg.innerHTML = "Back 1 Page"
 
 infoBook.addEventListener("click", ()=>{
-    book.appendChild(pg1)
+    if(book.firstChild == null){
+        book.appendChild(pg1)
     bookBtns.appendChild(nextpg)
     bookBtns.appendChild(backpg)
+    }
 })
 
 nextpg.addEventListener("click", ()=>{
@@ -123,7 +125,17 @@ let enemyDisease = potDiseases[Math.floor(Math.random()* potDiseases.length)]
 let startButton = document.getElementById("start") 
 
 
-
+let starterInfo = document.getElementById("gameinfo");
 startButton.addEventListener("click", ()=>{
-
+    starterInfo.hidden = true
+    startButton.hidden = true
 })
+
+function draw(){
+    let test = document.createElement("canvas")
+    const context = test.getContext("2d")
+
+    context.fillStyle = "rgb(200 0 0)"
+    context.fillRect(10, 10, 50, 50)
+}
+draw()
